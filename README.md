@@ -9,13 +9,13 @@ https://github.com/tsriram/is-gatsby
 First, install the tool globally using `npm` or `yarn`
 
 ```sh
-npm i -g is-gatsby
+npm i -g is-gatsby-cli
 ```
 
 or
 
 ```sh
-yarn global add is-gatsby
+yarn global add is-gatsby-cli
 ```
 
 You can then use the tool by passing a URL to `is-gatsby` command, like this:
