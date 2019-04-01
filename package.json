@@ -1,0 +1,32 @@
+{
+  "name": "is-gatsby-cli",
+  "version": "1.0.0",
+  "description": "Check whether a site is built using Gatsby from your CLI",
+  "bin": {
+    "is-gatsby": "cli.js"
+  },
+  "keywords": [
+    "cli",
+    "cli-app",
+    "gatsby",
+    "is-gatsby"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "author": {
+    "name": "Sriram Thiagarajan",
+    "email": "sri.sjc@gmail.com",
+    "url": "https://github.com/tsriram"
+  },
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "joi": "^14.3.1",
+    "log-symbols": "^2.2.0",
+    "meow": "^5.0.0",
+    "ora": "^3.2.0",
+    "puppeteer": "^1.14.0"
+  }
+}
