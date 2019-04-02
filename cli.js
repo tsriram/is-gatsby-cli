@@ -2,12 +2,11 @@
 "use strict";
 
 const logSymbols = require("log-symbols");
+const fetch = require("node-fetch");
 const chalk = require("chalk");
 const meow = require("meow");
 const ora = require("ora");
-const url = require("url");
 const Joi = require("joi");
-const https = require("https");
 
 const cli = meow(`
 	Usage
@@ -54,18 +53,14 @@ if (error && error.details) {
   process.exit(1);
 }
 
-const puppeteer = require("puppeteer");
-
 const spinner = ora(`Checking if ${urlToCheck} is built using Gatsby`).start();
 
 (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto(urlToCheck, { waitUntil: "networkidle2" });
-
-  const gatsbyNode = await page.$("#___gatsby");
+  const response = await fetch(urlToCheck);
+  const text = await response.text();
+  const isGatsby = text.includes("___gatsby");
   spinner.stop();
-  if (gatsbyNode !== null) {
+  if (isGatsby) {
     console.log(
       green(
         `${logSymbols.success} ${urlToCheck} seems to be built using Gatsby :-)`
@@ -80,8 +75,6 @@ const spinner = ora(`Checking if ${urlToCheck} is built using Gatsby`).start();
       )
     );
   }
-
-  await browser.close();
   process.exit(1);
 })().catch(error => {
   spinner.stop();
