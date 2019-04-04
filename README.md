@@ -4,6 +4,9 @@ This is a CLI tool which tells whether a site / page is built using Gatsby.
 There's a browser extension that does exactly the same which can be found here -
 https://github.com/tsriram/is-gatsby
 
+## Why a CLI?
+Why not? 😛
+
 ## Usage
 
 First, install the tool globally using `npm` or `yarn`
